@@ -1,0 +1,1 @@
+A bare bones skeleton showing one way one might implement Google Mobile Ads in one's libgdx based game. Only includes an actual implementation for Android at this point.
