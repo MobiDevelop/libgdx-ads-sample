@@ -26,25 +26,25 @@ public class AdsGame extends Game {
     }
 
 	@Override
-	public void create () {
+    public void create () {
         setScreen(new MenuScreen(this));
     }
 
     private class DummyAdsController implements AdsController {
 
         @Override
-        public void showInterstitialAd(Runnable then) {
+        public void showInterstitialAd (Runnable then) {
             Gdx.app.debug("DummyAdController", "showInterstitialAd");
             Gdx.app.postRunnable(then);
         }
 
         @Override
-        public void showBannerAd() {
+        public void showBannerAd () {
             Gdx.app.debug("DummyAdController", "showBannerAd");
         }
 
         @Override
-        public void hideBannerAd() {
+        public void hideBannerAd () {
             Gdx.app.debug("DummyAdController", "hideInterstitialAd");
         }
 

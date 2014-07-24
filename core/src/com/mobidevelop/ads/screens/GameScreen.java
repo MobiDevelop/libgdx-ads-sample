@@ -6,7 +6,7 @@ import com.mobidevelop.ads.AdsGame;
 
 public class GameScreen extends BaseScreen {
 
-    public GameScreen(AdsGame game) {
+    public GameScreen (AdsGame game) {
         super(game);
     }
 

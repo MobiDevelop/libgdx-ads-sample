@@ -24,10 +24,10 @@ public class AndroidLauncher extends AndroidApplication implements AdsController
     AdView bannerAd;
     InterstitialAd interstitialAd;
 
-	@Override
-	protected void onCreate (Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+    @Override
+    protected void onCreate (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
         View game = initializeForView(new AdsGame(this), config);
         setupAds();
         RelativeLayout layout = new RelativeLayout(this);
@@ -36,9 +36,9 @@ public class AndroidLauncher extends AndroidApplication implements AdsController
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         layout.addView(bannerAd, params);
         setContentView(layout);
-	}
+    }
 
-    public void setupAds() {
+    public void setupAds () {
         bannerAd = new AdView(this);
         bannerAd.setVisibility(View.INVISIBLE);
         bannerAd.setBackgroundColor(0xff000000);
@@ -53,14 +53,14 @@ public class AndroidLauncher extends AndroidApplication implements AdsController
     }
 
     @Override
-    public void showInterstitialAd(final Runnable then) {
+    public void showInterstitialAd (final Runnable then) {
         runOnUiThread(new Runnable() {
             @Override
-            public void run() {
+            public void run () {
                 if (then != null) {
                     interstitialAd.setAdListener(new AdListener() {
                         @Override
-                        public void onAdClosed() {
+                        public void onAdClosed () {
                             Gdx.app.postRunnable(then);
                         }
                     });
@@ -71,10 +71,10 @@ public class AndroidLauncher extends AndroidApplication implements AdsController
     }
 
     @Override
-    public void showBannerAd() {
+    public void showBannerAd () {
         runOnUiThread(new Runnable() {
             @Override
-            public void run() {
+            public void run () {
                 bannerAd.setVisibility(View.VISIBLE);
                 AdRequest.Builder builder = new AdRequest.Builder();
                 AdRequest ad = builder.build();
@@ -84,10 +84,10 @@ public class AndroidLauncher extends AndroidApplication implements AdsController
     }
 
     @Override
-    public void hideBannerAd() {
+    public void hideBannerAd () {
         runOnUiThread(new Runnable() {
             @Override
-            public void run() {
+            public void run () {
                 bannerAd.setVisibility(View.INVISIBLE);
             }
         });
